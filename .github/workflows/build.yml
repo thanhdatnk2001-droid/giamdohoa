@@ -9,16 +9,22 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Theos
-        uses: theos/actions/setup-theos@main
+        run: |
+          git clone --recursive https://github.com/theos/theos.git ${{ github.workspace }}/theos
+          echo "THEOS=${{ github.workspace }}/theos" >> $GITHUB_ENV
+
+      - name: Setup iOS SDK
+        run: |
+          git clone https://github.com/theos/sdks.git ${{ github.workspace }}/theos/sdks
 
       - name: Build Tweak (.deb)
         run: make package FINALPACKAGE=1
 
       - name: Upload DEB File
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: GiamDoHoa-DEB
           path: packages/*.deb

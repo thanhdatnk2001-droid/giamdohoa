@@ -21,6 +21,9 @@ jobs:
           rm -rf ${{ github.workspace }}/theos/sdks
           git clone https://github.com/theos/sdks.git ${{ github.workspace }}/theos/sdks
 
+      - name: Install ldid (Signing Tool)
+        run: brew install ldid
+
       - name: Build Tweak (.deb)
         run: make package FINALPACKAGE=1
 

@@ -18,6 +18,7 @@ jobs:
 
       - name: Setup iOS SDK
         run: |
+          rm -rf ${{ github.workspace }}/theos/sdks
           git clone https://github.com/theos/sdks.git ${{ github.workspace }}/theos/sdks
 
       - name: Build Tweak (.deb)

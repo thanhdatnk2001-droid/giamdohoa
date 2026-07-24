@@ -1,0 +1,8 @@
+Package: com.thanh.giamdohoaskp
+Name: Giam Do Hoa SKP (No VSync)
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Tối ưu đồ họa, tắt VSync chống lag cho Soul Knight Prequel.
+Maintainer: Thanh
+Author: Thanh
+Section: Tweaks
